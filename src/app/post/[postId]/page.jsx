@@ -4,7 +4,7 @@ import { Vote } from "@/components/Vote";
 import { db } from "@/db";
 
 export const metadata = {
-  title: {post.title},
+  title: ${post.title},
   description: "A social app like Reddit or Hacker News",
 };
 
