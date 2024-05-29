@@ -2,5 +2,5 @@
 import { signIn } from "next-auth/react"
  
 export function LoginButton() {
-  return <Button onClick={() => signIn()}>Sign In</Button>
+  return <button onClick={() => signIn()}>Sign In</button>
 }
