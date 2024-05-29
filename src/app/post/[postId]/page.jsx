@@ -4,13 +4,23 @@ import { Vote } from "@/components/Vote";
 import { db } from "@/db";
 
 export async function generateMetadata({ params }) {
-  const { rows: posts = await db.query(`SELECT posts.title FROM posts
-WHERE posts.id = $1`,
-[postId]
-);
+  const postId = params.postId;
+
+  const { rows: posts } = await db.query(
+    `SELECT posts.title FROM posts WHERE posts.id = $1`,
+    [postId]
+  );
+
+  if (posts.length === 0) {
+    return {
+      title: 'Post Not Found - Didit',
+      description: 'Post not found.',
+    };
+  }
+
   return {
-    title: `${post.rows[0].title}: Didit`,
-    description: `Didid Post`,
+    title: `${posts[0].title}: Didit`,
+    description: `Didit Post titled "${posts[0].title}"`,
   };
 }
 
