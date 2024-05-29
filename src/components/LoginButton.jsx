@@ -3,7 +3,6 @@ import { signIn } from "@/auth";
 export function LoginButton() {
   async function handleLogin() {
     "use server";
-    await new Promise((resolve) => setTimeout(resolve, 3000));
     await signIn();
   }
 
