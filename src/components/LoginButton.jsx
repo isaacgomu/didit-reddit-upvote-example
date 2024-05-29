@@ -1,16 +1,6 @@
-import { signIn } from "@/auth";
-
-export function LoginButton() {
-  async function handleLogin() {
-    "use server";
-    await signIn();
-  }
-
-  return (
-    <form action={handleLogin} className="inline">
-      <button className="bg-pink-300 text-black px-3 py-2 rounded">
-        Login
-      </button>
-    </form>
-  );
+"use client";
+import { signIn } from "next-auth/react"
+ 
+export function SignIn() {
+  return <Button onClick={() => signIn()}>Sign In</Button>
 }
